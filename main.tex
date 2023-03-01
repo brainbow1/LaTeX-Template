@@ -1,0 +1,59 @@
+% !TeX program=lualatex
+\documentclass[fontsize=11.5bp,parskip=half-]{scrartcl}
+
+\usepackage[top=6cm,bottom=4cm,left=4cm,right=2cm]{geometry}
+
+\usepackage{anyfontsize}
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{fontspec}
+\setsansfont{Arial}
+\renewcommand*{\familydefault}{\sfdefault}
+
+\setkomafont{footnote}{\fontsize{9.5bp}{11.4bp}\selectfont}
+
+%Seitenstil
+\usepackage{scrlayer-scrpage}
+\clearpairofpagestyles
+\chead[\pagemark]{\pagemark}
+
+
+\ModifyLayers[voffset=2cm]{scrheadings.head.oneside,scrheadings.head.odd,scrheadings.head.even,plain.scrheadings.head.oneside,plain.scrheadings.head.odd,plain.scrheadings.head.even}
+\ModifyLayers[voffset=277mm]{scrheadings.foot.oneside,scrheadings.foot.odd,scrheadings.foot.even,plain.scrheadings.foot.oneside,plain.scrheadings.foot.odd,plain.scrheadings.foot.even}
+
+%Sprachanpassung
+\usepackage[ngerman]{babel}
+\usepackage{microtype}
+\usepackage[babel]{csquotes}
+
+%Literatur
+\usepackage[sorting=nty]{biblatex}
+% Demo Datei
+\addbibresource{biblatex-examples}
+
+%\setlength{}
+\nocite{*}
+
+% Demo:
+\usepackage{blindtext}
+\begin{document}
+\pagenumbering{Roman}
+
+\listoffigures
+\listoftables
+%weiter verzeichnisse, wenn nötig 
+
+%Sperrermerkt wenn nötig
+
+\cleardoublepage\pagenumbering{arabic}
+
+\Blinddocument
+
+\input{content/affidavit}
+
+\printbibliography[nottype=online]
+
+\defbibheading{online}[Internetquellen]{\subsection*{#1}}
+\printbibliography[type=online,heading=online]
+
+\end{document}
