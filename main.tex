@@ -1,101 +1,35 @@
 % !TeX program=lualatex
-\documentclass[fontsize=11.5bp,parskip=half-]{scrartcl}
+\documentclass[fontsize=12bp,parskip=full-,german,abstract=true]{scrartcl}
 
-\usepackage[top=4cm,bottom=2cm,left=4cm,right=2cm]{geometry}
+\input{config.tex}
 
-\usepackage{anyfontsize}
-\usepackage[onehalfspacing]{setspace}
-
-\usepackage{fontspec}
-\setsansfont{Arial}
-\renewcommand*{\familydefault}{\sfdefault}
-
-\setkomafont{footnote}{\fontsize{9.5bp}{11.4bp}\selectfont}
-
-%Seitenstil
-\usepackage{scrlayer-scrpage}
-\clearpairofpagestyles
-\chead[\pagemark]{\pagemark}
-
-
-\ModifyLayers[align=tl,voffset=2cm]{scrheadings.head.oneside,scrheadings.head.odd,scrheadings.head.even,plain.scrheadings.head.oneside,plain.scrheadings.head.odd,plain.scrheadings.head.even}
-\ModifyLayers[voffset=277mm]{scrheadings.foot.oneside,scrheadings.foot.odd,scrheadings.foot.even,plain.scrheadings.foot.oneside,plain.scrheadings.foot.odd,plain.scrheadings.foot.even}
-
-%Sprachanpassung
-\usepackage[ngerman]{babel}
-\usepackage{microtype}
-\usepackage[babel]{csquotes}
-
-%Literatur
-\usepackage[sorting=nty]{biblatex}
-% Demo Datei
-\addbibresource{biblatex-examples}
-
-%\setlength{}
-\nocite{*}
+\addbibresource{biblatex-examples.bib}
 
 % Demo:
 \usepackage{blindtext}
 \begin{document}
+
 \pagenumbering{Roman}
 
-\begin{titlepage}
-\raggedright\large\setlength{\parskip}{\baselineskip}
-{\bfseries\Large
-FOM Hochschule für Ökonomie \& Management\\
-Digitales Live-Studium}
+\include{content/titlepage}
 
-\par\bigskip
-berufsbegleitender Studiengang zum\\
-{\bfseries
-Bachelor of Arts (B.A.)\\
-– Business Administration –
-}
+\include{content/sperrvermerk}
 
-2. Semester
+\include{content/abstract}
 
-\textbf{Hausarbeit}\\
-im Modul \enquote{wissenschaftliches Arbeiten}
+\include{content/lists}
 
-zum Thema
+\cleardoublepage
+\pagenumbering{arabic}
 
-\begingroup
-\bfseries
-Chancen und Risiken des Megatrends New Work\\
-für Arbeitnehmer und Arbeitgeber
+\include{content/kapitel-hauptteil}
 
-Ist die Arbeitsform „Homeoffice“ oder hybrides Arbeiten\\
-ein entscheidendes Auswahlkriterium bei der Arbeitsplatzwahl?
+\include{content/bibliography}
 
-Welche Auswirkungen hat diese Entwicklung\\
-für Arbeitnehmer und Arbeitgeber
-\endgroup
+\appendix
 
-\vskip\baselineskip
-\begin{tabular}{@{}ll@{}}
-Betreuerin:&Prof. Dr. Tina Jäger\\
-Autor:&Matthias Forster\\
-Matrikelnummer:&626193\\
-Abgabedatum:&05.02.2023
-%Anzahl Wörter: 970
-\end{tabular}
-\end{titlepage}
-
-\listoffigures
-\listoftables
-%weiter verzeichnisse, wenn nötig 
-
-%Sperrermerkt wenn nötig
-
-\cleardoublepage\pagenumbering{arabic}
-
-\Blinddocument
+\include{content/appendix}
 
 \input{content/affidavit}
-
-\printbibliography[nottype=online]
-
-\defbibheading{online}[Internetquellen]{\subsection*{#1}}
-\printbibliography[type=online,heading=online]
 
 \end{document}

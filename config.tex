@@ -1,0 +1,62 @@
+\usepackage[]{geometry}
+
+\ExplSyntaxOn
+\makeatletter
+
+\keys_define:nn {signature} {
+	image .tl_set:N = \l_ptxcd_signature_image_tl,
+	image .initial:n =,
+	location .tl_set:N = \l_ptxcd_signature_location_tl,
+	location .initial:n = ,
+	signature .tl_set:N = \l_ptxcd_signature_tl,
+	signature .initial:n = \@author,
+	date .tl_set:N = \l_ptxcd_date_tl,
+	date .initial:n = \@date
+}
+
+\NewDocumentCommand{\AffidavitSignature}{o}{
+	\par
+	\begingroup
+	\IfNoValueF {#1} {%
+		\keys_set:nn {signature} {#1}
+	}%
+	\tl_if_empty:NT \l_ptxcd_signature_image_tl {\bigskip}
+	\noindent \l_ptxcd_signature_location_tl,~ \l_ptxcd_date_tl\hfill
+	\SignatureBox{ \l_ptxcd_signature_tl }
+	\endgroup
+	\\\strut
+}
+
+\newcommand*{\SignatureBox}[2][5cm]{\parbox[t]{#1}{\centering
+%		\tl_if_empty:NF \l_ptxcd_signature_image_tl
+%			{\let\width\linewidth\l_ptxcd_signature_image_tl\par\nointerlineskip}
+		\rule{\linewidth}{.3pt}\\\makebox[0pt][c]{#2}}
+}
+
+\makeatother
+\ExplSyntaxOff
+
+\usepackage{anyfontsize}
+\usepackage{setspace}
+
+\usepackage{sourcesanspro}
+
+\setkomafont{footnote}{\fontsize{9.5bp}{11.4bp}\selectfont}
+
+%Seitenstil
+\usepackage{scrlayer-scrpage}
+\clearpairofpagestyles
+\cfoot[\pagemark]{\pagemark}
+
+
+%\ModifyLayers[align=tl,voffset=2cm]{scrheadings.head.oneside,scrheadings.head.odd,scrheadings.head.even,plain.scrheadings.head.oneside,plain.scrheadings.head.odd,plain.scrheadings.head.even}
+%\ModifyLayers[voffset=277mm]{scrheadings.foot.oneside,scrheadings.foot.odd,scrheadings.foot.even,plain.scrheadings.foot.oneside,plain.scrheadings.foot.odd,plain.scrheadings.foot.even}
+
+%Sprachanpassung
+\usepackage[ngerman]{babel}
+\usepackage{microtype}
+\usepackage[babel]{csquotes}
+
+%Literatur
+\usepackage[style=apa]{biblatex}
+% Demo Datei
