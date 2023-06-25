@@ -1,7 +1,11 @@
 \usepackage[]{geometry}
+\usepackage{graphicx}
+
+\KOMAoptions{captions=above,abstract=true,fontsize=12bp,parskip=full-}
 
 \ExplSyntaxOn
 \makeatletter
+\newcommand*{\Source}[1]{\par \vskip \abovecaptionskip\parbox{\linewidth}{\@hangfrom{Quelle:~}{#1}}\par\vskip\belowcaptionskip}
 
 \keys_define:nn {signature} {
 	image .tl_set:N = \l_ptxcd_signature_image_tl,
@@ -39,7 +43,6 @@
 \usepackage{anyfontsize}
 \usepackage{setspace}
 
-\usepackage{sourcesanspro}
 
 \setkomafont{footnote}{\fontsize{9.5bp}{11.4bp}\selectfont}
 

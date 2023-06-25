@@ -1,1 +1,42 @@
-\Blinddocument
+\section{Zitatbeispiele}
+
+Die häufigsten Zitatvarianten:
+
+Im Fließtext: 
+\textcite{averroes/bland} behauptet, dass …
+
+Am Ende eines Satzes/Absatzes :
+\parencite{knuth:ct:related}
+
+\subsection{Seitenangabe}
+
+\parencite[5]{westfahl:space}
+
+
+\subsection{prenote/postnote}
+
+Nur davor:
+\parencite[vgl.][]{jaffe}
+
+Nur danach:
+\parencite[Tabelle 5]{jaffe}
+
+Beides:
+\parencite[vgl.][8]{jaffe}
+
+Falls das zweite optionale Argument nur eine Zahl enthält, wird es automatisch als Seitenangabe interpretiert. 
+
+\subsection{Sekundärquellen}
+
+\parencites{doody}[zitiert in][]{aksin}
+
+\section{Abbildungsbeispiel}
+
+\begin{figure}
+\caption{Beispielbild}
+
+\includegraphics[width=\linewidth]{example-image}
+
+\Source{\cite[892]{laufenberg}}
+\end{figure}
+

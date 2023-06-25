@@ -1,9 +1,17 @@
 % !TeX program=lualatex
-\documentclass[fontsize=12bp,parskip=full-,german,abstract=true]{scrartcl}
+\documentclass[german]{scrartcl}
 
 \input{config.tex}
 
-\addbibresource{biblatex-examples.bib}
+%Schriftart:
+\usepackage{sourceserifpro}
+
+% Times
+%\usepackage{fontspec}
+%\setmainfont{Times}
+
+
+\addbibresource{biblatex-examples.bib}% Beispieldatei, kannst du durch deine ersetzen, bzw deine hinzufügen, dann funktionieren die beispiele weiterhin
 
 % Demo:
 \usepackage{blindtext}
